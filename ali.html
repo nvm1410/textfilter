@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div style="display: flex;
+                flex-direction: column;">
+        <textarea rows="20" cols="4" class="input"></textarea>
+        <textarea rows="7" class="condition"></textarea>
+        <button class="button">Filter</button>
+        <textarea rows="20" cols="4" class="output"></textarea>
+    </div>
+    
+    <script>
+        let input=document.querySelector(".input")
+        let condition=document.querySelector(".condition")
+        let output=document.querySelector(".output")
+        let button=document.querySelector(".button")
+        button.addEventListener("click",()=>{
+            let arrInput=input.value.split("\n")
+            let arrCondition=condition.value.split("\n")
+            let result=arrInput.filter(str=>{
+                return arrCondition.every(con=>str.includes(con))
+            })
+            output.value=result.join("\n")
+        })
+        
+
+    </script>
+</body>
+</html>
